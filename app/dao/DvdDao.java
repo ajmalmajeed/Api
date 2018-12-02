@@ -17,4 +17,8 @@ public interface DvdDao {
     public Dvd borrowDvd();
 
     public Dvd returnDvd();
+
+    public Dvd searchByTitle(String Title);
+
+    public Dvd isAvailbale(String title);
 }

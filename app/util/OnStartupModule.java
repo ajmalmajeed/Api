@@ -17,6 +17,7 @@ public class OnStartupModule extends AbstractModule {
     protected void configure() {
         bind(BookDao.class).annotatedWith(Names.named("bookDao")).to(BookDaoImpl.class);
         bind(DvdDao.class).annotatedWith(Names.named("dvdDao")).to(DvdDaoImpl.class);
+        bind(DvdDao.class).annotatedWith(Names.named("dateUtilDao")).to(DvdDaoImpl.class);
         //bind Service
         bind(BookService.class).to(BookServiceImpl.class);
         bind(DvdService.class).to(DvdServiceImpl.class);

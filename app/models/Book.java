@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 public class Book extends LibraryItem{
 
     @Id
-    public int bookId;
+    public String id;
 
     @NotNull
     public String authorName;
@@ -23,13 +23,20 @@ public class Book extends LibraryItem{
     @ManyToOne(cascade = CascadeType.ALL)
     private Reader reader;
 
-
-    public int getBookId() {
-        return bookId;
+    public String getId() {
+        return id;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Reader getReader() {
+        return reader;
+    }
+
+    public void setReader(Reader reader) {
+        this.reader = reader;
     }
 
     public String getAuthorName() {

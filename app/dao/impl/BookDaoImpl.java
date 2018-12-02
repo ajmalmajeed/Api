@@ -1,5 +1,6 @@
 package dao.impl;
 
+import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Model;
 import dao.BookDao;
 import models.Book;
@@ -7,7 +8,7 @@ import models.Book;
 import java.util.List;
 
 public class BookDaoImpl implements BookDao {
-    public static final Model.Finder<Long,Book> findd = new Model.Finder<>(Book.class);
+    public static final Model.Finder<Long,Book> find = new Model.Finder<>(Book.class);
 
     @Override
     public Book addBook(Book bookToAdd) {
@@ -17,7 +18,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public Book findBookById(long id) {
-        return findd.where().eq("id",id).findUnique();
+        return find.where().eq("id",id).findUnique();
     }
 
     @Override
@@ -28,7 +29,8 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public List<Book> listRemainingBooks() {
-        return null;
+        List<Book> bookList = find.findList();
+        return bookList;
     }
 
     @Override
@@ -38,6 +40,20 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public Book returnBook() {
+        return null;
+    }
+
+    @Override
+    public Book searchByTitle(String title) {
+        return find.where().eq("title",title).findUnique();
+    }
+
+    @Override
+    public Book isAvailable(String title) {
+        Book bookInDb = find.where().eq("title",title).findUnique();
+        if(bookInDb.isAvailable()==true){
+            return bookInDb;
+        }
         return null;
     }
 }

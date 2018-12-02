@@ -18,8 +18,16 @@ public abstract class LibraryItem extends Model{
     @NotNull
     private String sector;
 
-    @OneToOne(mappedBy = "reader",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private DateUtil publishedDate;
+    public boolean isAvailable(){
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+    @NotNull
+    private boolean isAvailable;
 
 
     public String getIsbn() {
@@ -46,27 +54,4 @@ public abstract class LibraryItem extends Model{
         this.sector = sector;
     }
 
-    public DateUtil getPublishedDate() {
-        return publishedDate;
-    }
-
-    public void setPublishedDate(DateUtil publishedDate) {
-        this.publishedDate = publishedDate;
-    }
-
-    /*public Date getDateBorrowed() {
-        return dateBorrowed;
-    }
-
-    public void setDateBorrowed(Date dateBorrowed) {
-        this.dateBorrowed = dateBorrowed;
-    }
-*/
-    /*public Reader getReader() {
-        return reader;
-    }
-
-    public void setReader(Reader reader) {
-        this.reader = reader;
-    }*/
 }

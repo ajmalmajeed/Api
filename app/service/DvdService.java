@@ -12,7 +12,9 @@ public interface DvdService {
 
     public List<Dvd> listRemainingDvds();
 
-    public Dvd borrowDvd();
+    public Dvd borrowDvd(String title);
 
     public Dvd returnDvd();
+
+    public Dvd search(String title);
 }

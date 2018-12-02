@@ -12,7 +12,9 @@ public interface BookService {
 
     public List<Book> listRemainingBooks();
 
-    public Book borrowBook();
+    public Book borrowBook(String title);
 
     public Book returnBook();
+
+    public Book search(String title);
 }

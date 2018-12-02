@@ -4,17 +4,16 @@
 # --- !Ups
 
 create table book (
-  book_id                       integer auto_increment not null,
+  id                            varchar(255) not null,
   isbn                          varchar(255),
   title                         varchar(255) not null,
   sector                        varchar(255) not null,
-  published_date                datetime(6) not null,
-  date_borrowed                 datetime(6) not null,
+  is_available                  tinyint(1) default 0 not null,
   author_name                   varchar(255) not null,
   publisher_name                varchar(255) not null,
   number_of_pages               bigint not null,
   reader_reader_id              integer,
-  constraint pk_book primary key (book_id)
+  constraint pk_book primary key (id)
 );
 
 create table company (
@@ -33,26 +32,23 @@ create table computer (
 );
 
 create table date_util (
-  record_id                     datetime(6) not null,
+  title                         varchar(255),
   borrwed_date                  datetime(6) not null,
   returned_date                 datetime(6),
-  published_date                datetime(6) not null,
-  constraint pk_date_util primary key (record_id)
+  published_date                datetime(6) not null
 );
 
 create table dvd (
-  dvd_id                        integer auto_increment not null,
   isbn                          varchar(255),
   title                         varchar(255) not null,
   sector                        varchar(255) not null,
-  published_date                datetime(6) not null,
-  date_borrowed                 datetime(6) not null,
+  is_available                  tinyint(1) default 0 not null,
+  id                            varchar(255),
   language                      varchar(255) not null,
   subtitles                     varchar(255) not null,
   producer_name                 varchar(255) not null,
   actors                        varchar(255) not null,
-  reader_reader_id              integer,
-  constraint pk_dvd primary key (dvd_id)
+  reader_reader_id              integer
 );
 
 create table reader (

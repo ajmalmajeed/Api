@@ -1,6 +1,7 @@
 package libraryManager;
 
-import javax.xml.transform.Result;
+
+import play.mvc.Result;
 
 public interface LibraryManager {
 
@@ -10,7 +11,7 @@ public interface LibraryManager {
 
     public Result listRemainingBooks();
 
-    public Result borrowBook();
+    public Result borrowBook(String title);
 
     public Result returnBook();
 
@@ -20,9 +21,11 @@ public interface LibraryManager {
 
     public Result listRemainingDvds();
 
-    public Result borrowDvd();
+    public Result borrowDvd(String title);
 
     public Result returnDvd();
 
+    public Result searchBook(String title);
 
+    public Result searchDvd(String title);
 }

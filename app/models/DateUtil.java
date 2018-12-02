@@ -12,9 +12,7 @@ import java.util.Date;
 @Entity
 public class DateUtil extends Model {
 
-    @Id
-    @GeneratedValue(generator = "id")
-    private Date recordId;
+    private String title;
 
     @NotNull
     private Date borrwedDate;
@@ -24,16 +22,6 @@ public class DateUtil extends Model {
     @NotNull
     private Date publishedDate;
 
-    @OneToOne
-    private LibraryItem libraryItem;
-
-    public Date getRecordId() {
-        return recordId;
-    }
-
-    public void setRecordId(Date recordId) {
-        this.recordId = recordId;
-    }
 
     public Date getBorrwedDate() {
         return borrwedDate;
@@ -57,5 +45,13 @@ public class DateUtil extends Model {
 
     public void setPublishedDate(Date publishedDate) {
         this.publishedDate = publishedDate;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

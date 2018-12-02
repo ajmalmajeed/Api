@@ -18,4 +18,8 @@ public interface BookDao {
 
     public Book returnBook();
 
+    public Book searchByTitle(String title);
+
+    public Book isAvailable(String title);
+
 }

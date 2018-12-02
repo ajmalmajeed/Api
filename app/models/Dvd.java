@@ -9,8 +9,8 @@ import java.util.List;
 @Entity
 public class Dvd extends LibraryItem{
 
-    @Id
-    public int dvdId;
+
+    public String id;
 
     @NotNull
     public String language;
@@ -28,12 +28,20 @@ public class Dvd extends LibraryItem{
     private Reader reader;
 
 
-    public int getDvdId() {
-        return dvdId;
+    public String getId() {
+        return id;
     }
 
-    public void setDvdId(int dvdId) {
-        this.dvdId = dvdId;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Reader getReader() {
+        return reader;
+    }
+
+    public void setReader(Reader reader) {
+        this.reader = reader;
     }
 
     public String getLanguage() {
